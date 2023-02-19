@@ -1,0 +1,98 @@
+{
+    "Partner": {
+        "IdPartnerSubsidiary": 2010,
+        "IdPartner": 129550,
+        "Dni": 39430840,
+        "Name": "JUAN",
+        "LastName": "ORIGLIO",
+        "Picture": null,
+        "PictureInB64": true,
+        "PartnerService": {
+            "IdServicioSocio": null,
+            "IdSucursalServicioSocio": null,
+            "IdServicio": null,
+            "Servicio": null,
+            "Token": null,
+            "VigenciaDesde": null,
+            "VigenciaHasta": null
+        }
+    },
+    "Entry": {
+        "IdControlAcceso": 15,
+        "IdSucursalControlAcceso": 2010,
+        "Sucursal": "2010 - Adrogue",
+        "Sector": "Recepcion"
+    },
+    "Reader": {
+        "Type": 7,
+        "Serial": "21088523702056",
+        "Code": "FITER.CN.llYtdQdo3W5kpnOVChi9sU0aYr5IT9n6bjdcaIod180=",
+        "ExpCodeAt": 1658437012863
+    },
+    "AccessResult": {
+        "GeneralValidation": true,
+        "Comment": "OK",
+        "Status": "PROCESSED",
+        "Reason": [
+            {
+                "Key": "Validación Standard",
+                "Value": "OK"
+            }
+        ]
+    },
+    "ProcessStep": "StandardAccessValidationAsyncStep",
+    "TransactionId": "59e9a712be064f89988d198a970aaad9",
+    "HookGymPassTransactionId": 0
+}
+
+
+
+
+
+
+{
+    "Partner": {
+        "IdPartnerSubsidiary": 95,
+        "IdPartner": 580632,
+        "Dni": 37992923,
+        "Name": "PAULA SOLANGE",
+        "LastName": "LUGO",
+        "Picture": null,
+        "PictureInB64": false,
+        "PartnerService": {
+            "IdServicioSocio": 1147,
+            "IdSucursalServicioSocio": 41,
+            "IdServicio": 3,
+            "Servicio": "GymPass",
+            "Token": "1905649518346",
+            "VigenciaDesde": "2021-07-16T00:00:00",
+            "VigenciaHasta": "2023-07-16T23:59:59"
+        }
+    },
+    "Entry": {
+        "IdControlAcceso": 43,
+        "IdSucursalControlAcceso": 30,
+        "Sucursal": "30 - Barracas",
+        "Sector": "Recepcion"
+    },
+    "Reader": {
+        "Type": 5,
+        "Serial": "21088523701459",
+        "Code": "MEGA.CN.bpPX8ch+H2QL6Cdp7lWU1Q==,1661873276582",
+        "ExpCodeAt": 0
+    },
+    "AccessResult": {
+        "GeneralValidation": true,
+        "Comment": "Check-In already validated",
+        "Status": "PROCESSED",
+        "Reason": [
+            {
+                "Key": "GymPass",
+                "Value": "OK"
+            }
+        ]
+    },
+    "ProcessStep": "GymPassValidatorByHookAsyncStep",
+    "TransactionId": "8bc016474d3e4156bd33366e2d08b319",
+    "HookGymPassTransactionId": 9185
+}

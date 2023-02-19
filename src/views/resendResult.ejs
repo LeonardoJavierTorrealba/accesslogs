@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en">
+
+
+    <%- include('./partials/head.ejs') %> 
+
+<body>
+	
+
+	<main class="main">
+		
+		<%- include('./partials/header.ejs') %> 
+
+			<!-- Begin bread crumbs -->
+			<nav class="bread-crumbs">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<ul class="bread-crumbs-list">
+								<li>
+									<a href="index.html">Home</a>
+									<i class="material-icons md-18">chevron_right</i>
+								</li>
+								<li>
+									<a href="#!">Reenvío Pendientes</a>
+									<i class="material-icons md-18">chevron_right</i>
+								</li>								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav><!-- End bread crumbs -->
+            
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-heading heading-center">
+                                    <h1>Resultados Facturas:</h1>
+                                </div>
+                                <div class="content">								
+                                    <h2>Facturas:</h2>
+                                    <ul>
+                                      <% for( let i = 0; i < resultados.length; i++ ) { %>
+                                        <li> <%= resultados[i].documento %> - <%= resultados[i].resultado %> </li>
+                                      <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>             
+           
+
+<!-- Begin footer -->
+<%- include('./partials/footer.ejs') %> 
+	</main><!-- End main -->
+
+    <%- include('./partials/scripts.ejs') %> 
+</body>
+</html>

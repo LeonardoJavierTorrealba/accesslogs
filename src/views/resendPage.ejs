@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en">
+
+
+    <%- include('./partials/head.ejs') %> 
+
+<body>
+
+
+	<main class="main">
+		
+		<%- include('./partials/header.ejs') %> 
+
+			<!-- Begin bread crumbs -->
+			<nav class="bread-crumbs">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<ul class="bread-crumbs-list">
+								<li>
+									<a href="index.html">Home</a>
+									<i class="material-icons md-18">chevron_right</i>
+								</li>
+								<li>
+									<a href="#!">Reenvío Pendientes</a>
+									<i class="material-icons md-18">chevron_right</i>
+								</li>								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav><!-- End bread crumbs -->       
+
+
+			<!-- Begin Pricing -->
+			<section class="section section-bgc">
+				<div class="container">
+					<div class="row items">
+						<div class="col-12">
+							<div class="section-heading heading-center">
+								<div class="section-subheading"></div>
+								<h2>Reenvío General</h2>
+							</div>
+						</div>
+
+                        <% for( let document of documents) { %>
+							
+								<div class="col-lg-4 col-md-6 col-12 item">
+									<!-- Begin pricing item -->
+									<div class="pricing-item item-style">
+										<header class="pricing-item-header">
+											<div class="pricing-item-heading">Reenvío</div>
+											<div class="pricing-item-price"><%= document.nombreSucursal %> (<%= document.idSucursal %>) </div>
+										</header>
+										<div class="pricing-item-h">
+											<div class="pricing-item-content">
+												<ul class="pricing-item-list">
+													<li class="active">
+													<i class="material-icons md-24">receipt</i>
+														Factura: <strong><%=document.idSucursal %>-<%= document.idDocumento %> </strong>
+													</li>							
+													<li class="active">
+													<i class="material-icons md-24">how_to_reg</i>
+														ID Socio: <strong><%= document.idSocio %> </strong>
+													</li>					
+													<li class="active">
+														<i class="material-icons md-24">badge</i>
+														DNI Socio:<strong><%= document.numeroDoc %> </strong>
+													</li>			
+													<li class="active">
+														<i class="material-icons md-24">paid</i>
+															<strong><%= document.importeTotal %></strong>
+													</li>											
+													<li class="active">
+														<i class="material-icons md-24">event</i>
+															<strong>    <%= document.dateTime%></strong>
+													</li>						
+												</ul>
+											</div>
+											<footer class="pricing-item-footer">
+												<a href="/resendDoc/<%=document.invoicerReference%>" class="btn btn-large btn-with-icon btn-wide ripple">
+													<span>Enviar</span>
+													<svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="/img/sprite.svg#arrow-right"></use></svg>
+												</a>
+											</footer>
+										</div>
+									</div><!-- End pricing item -->
+								</div>
+							</form>
+						
+
+
+
+                        <% } %>
+				
+					</div>
+				</div>
+			</section><!-- End Pricing -->
+
+			<section class="section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="section-heading heading-center">
+								<div class="section-subheading">¿Hay pendientes?</div>
+								<h2>Presione para reenviar todos</h2>
+							</div>
+							<a href="/resendResult" class="btn btn-large btn-with-icon btn-wide ripple">
+                                <span>Reenviar Todos</span>
+                                <svg class="btn-icon-right" viewBox="0 0 13 9" width="6.5" height="4.5"><use xlink:href="/img/sprite.svg#arrow-right"></use></svg>
+                            </a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>		
+	
+
+<!-- Begin footer -->
+<%- include('./partials/footer.ejs') %> 
+	</main><!-- End main -->
+
+    <%- include('./partials/scripts.ejs') %> 
+	
+</body>
+</html>

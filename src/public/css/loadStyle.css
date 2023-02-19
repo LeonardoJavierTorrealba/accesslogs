@@ -1,0 +1,51 @@
+.loader-container{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  z-index: 400;
+}
+ 
+.loader-container .loader{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: solid 4px transparent;
+  border-top-color: #008cff;
+  border-left-color: #008cff;
+  border-radius: 50%;
+  animation: loader 1.4s linear infinite;
+}
+ 
+.loader-container .loader2{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: solid 4px transparent;
+  border-top-color: #0b2ce4;
+  border-left-color: #0b2ce4;
+  border-radius: 50%;
+  animation: loader2 1.2s linear infinite;
+}
+ 
+@keyframes loader{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+ 
+@keyframes loader2{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
