@@ -4,6 +4,7 @@ import sql from "mssql";
 import moment from 'moment'
 import poolManager from './database/poolManager.js';
 import settings from "./database/settings.js";
+import fs from 'fs';
 
 async function actualizarContratos (startNumber, finalNumber) {
 
@@ -41,8 +42,16 @@ const poolMEGA = await poolManager.get('MEGA', settings.MEGA)
         'MigracionCaballitoAsyncStep',
         'ConnusTurnProcessorStep', 
         'GetActiveServiceStep',
-        'ProcessGymPassServicesStep'
+        'ProcessGymPassServicesStep',
+        'StandardAccessValidationStep',
+        'CmStep'        
     ];
+   
+    let log1 = `Incia el lote comenzado en ${startNumber} y finalizado en ${finalNumber} - ${moment().format('YYYY-MM-DD HH:mm:ss.000')} \n`;
+    fs.appendFile('logs.txt', log1, (err) => {
+    if (err) throw err;
+    console.log(log1);
+    });
   
     for (let i = 0; i < access.length; i++) {
         let acc = access[i];
@@ -123,8 +132,24 @@ const poolMEGA = await poolManager.get('MEGA', settings.MEGA)
     }    
     } //cierre del for
 
+
+    try {
+        let resUpdate = await poolMGFT.request().query(`INSERT INTO lotesCargados (loteInicial, loteFinal, ts) VALUES (${startNumber}, ${finalNumber})`)
+        console.log(`updateado el id ${acc.id} a las ${moment().format('LTS')}`);
+    } catch (error) {
+        console.log(error);            
+    } 
+
+
     let cierre = await poolManager.closeAll();
     console.log(cierre);
+    let log = `Finalizando el lote comenzado en ${startNumber} y finalizado en ${finalNumber}  - ${moment().format('YYYY-MM-DD HH:mm:ss.000')} \n`;
+
+
+    fs.appendFile('logs.txt', log, (err) => {
+        if (err) throw err;
+        console.log(log);
+      });
 
 }
 
