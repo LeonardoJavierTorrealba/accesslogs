@@ -132,15 +132,6 @@ const poolMEGA = await poolManager.get('MEGA', settings.MEGA)
     }    
     } //cierre del for
 
-
-    try {
-        let resUpdate = await poolMGFT.request().query(`INSERT INTO lotesCargados (loteInicial, loteFinal, ts) VALUES (${startNumber}, ${finalNumber})`)
-        console.log(`updateado el id ${acc.id} a las ${moment().format('LTS')}`);
-    } catch (error) {
-        console.log(error);            
-    } 
-
-
     let cierre = await poolManager.closeAll();
     console.log(cierre);
     let log = `Finalizando el lote comenzado en ${startNumber} y finalizado en ${finalNumber}  - ${moment().format('YYYY-MM-DD HH:mm:ss.000')} \n`;
